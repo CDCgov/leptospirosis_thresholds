@@ -21,7 +21,8 @@ Leptospirosis remains a recurring public health concern in Puerto Rico and other
   * Calculates percentile-based thresholds (75th, 80th, 85th, 90th, and 95th) at the island-wide level.
   * Generates graphs at the island-wide level.
   * Calculates percentile-based thresholds (75th-95th) at the health region level.
-  * Generates graphs at the health region level. 
+  * Generates graphs at the health region level.
+* **`/data/`** - (folder) placeholder to save data files (optional).
 * **`/.github/`** - (.md files) issue and pull request templates
 
 ### Usage Instructions
