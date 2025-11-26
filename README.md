@@ -14,14 +14,13 @@ Leptospirosis remains a recurring public health concern in Puerto Rico and other
 ### Repository Contents
 
 
-* **`/code/threshold_model_lepto.R`** - (.R file) Primary R script for running thresholds and plotting figures
-  * Reads in the data, cleans and formats it on a weekly scale
-  * Draws time-series bootstrap estimates to supplement the dataset
-  * Fits the intercept-only negative binomial model using the bootstrapped data
-  * Calculates percentile-based thresholds (75th, 80th, 85th, 90th, and 95th) at the island-wide level.
-  * Generates graphs at the island-wide level.
-  * Calculates percentile-based thresholds (75th-95th) at the health region level.
-  * Generates graphs at the health region level. 
+* **`/code/threshold_model_lepto.R`** - (.R file) Primary R script for running thresholds and plotting figures. The bullets below are done at both the island-wide and health region level
+  * Reads in the data, cleans and formats it on a weekly scale.
+  * Draws time-series bootstrap estimates to supplement the dataset.
+  * Fits the intercept-only negative binomial model using the bootstrapped data.
+  * Calculates percentile-based thresholds (75th, 80th, 85th, 90th, and 95th).
+  * Applies a range of consecutive week rules (2+, 3+, and 4+).
+  * Generates graphs.
 * **`/.github/`** - (.md files) issue and pull request templates
 
 ### Usage Instructions
