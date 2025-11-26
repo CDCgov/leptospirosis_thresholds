@@ -9,9 +9,10 @@ This repository provides code and supporting documentation for deriving weekly l
 
 ### Background
 
-Leptospirosis remains a recurring public health concern in Puerto Rico and other endemic regions, particularly following hurricanes and flooding events when environmental conditions favor increased exposure. Here, I have adapted disease outbreak threshold methods previously published in BMJ Open (https://bmjopen.bmj.com/content/15/9/e106182) to allow for low weekly case counts. This method uses a weekly **intercept-only negative binomial regression model**, fit to historical data using time-series bootstrapping to estimate threshold values. These thresholds enable objective, data-driven identification of outbreak weeks and timely alerts that can be incoporated into reoutine surveillance reports and used to monitor leptospirosis activity.
+Leptospirosis remains a recurring public health concern in Puerto Rico and other endemic regions, particularly following hurricanes and flooding events when environmental conditions favor increased exposure. Here, I have adapted disease outbreak threshold methods previously published in BMJ Open (https://bmjopen.bmj.com/content/15/9/e106182) to allow for low weekly case counts. This method uses a weekly **intercept-only negative binomial regression model**, fit to historical data using time-series bootstrapping to estimate threshold values. These thresholds enable objective, data-driven identification of outbreak weeks and timely alerts that can be incoporated into routine surveillance reports and used to monitor leptospirosis activity.
 
 ### Repository Contents
+
 
 
 * **`/code/threshold_model_lepto.R`** - (.R file) Primary R script for running thresholds and plotting figures. The bullets below are done at both the island-wide and health region level
