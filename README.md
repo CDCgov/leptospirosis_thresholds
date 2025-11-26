@@ -1,25 +1,44 @@
-# CDCgov GitHub Organization Open Source Project Template
-
-**Template for clearance: This project serves as a template to aid projects in starting up and moving through clearance procedures. To start, create a new repository and implement the required [open practices](open_practices.md), train on and agree to adhere to the organization's [rules of behavior](rules_of_behavior.md), and [send a request through the create repo form](https://forms.office.com/Pages/ResponsePage.aspx?id=aQjnnNtg_USr6NJ2cHf8j44WSiOI6uNOvdWse4I-C2NUNk43NzMwODJTRzA4NFpCUk1RRU83RTFNVi4u) using language from this template as a Guide.**
+# Leptospirosis outbreak thresholds
 
 **General disclaimer** This repository was created for use by CDC programs to collaborate on public health related projects in support of the [CDC mission](https://www.cdc.gov/about/cdc/#cdc_about_cio_mission-our-mission).  GitHub is not hosted by the CDC, but is a third party website used by CDC and its partners to share information and collaborate on software. CDC use of GitHub does not imply an endorsement of any one particular service, product, or enterprise. 
 
-## Access Request, Repo Creation Request
-
-* [CDC GitHub Open Project Request Form](https://forms.office.com/Pages/ResponsePage.aspx?id=aQjnnNtg_USr6NJ2cHf8j44WSiOI6uNOvdWse4I-C2NUNk43NzMwODJTRzA4NFpCUk1RRU83RTFNVi4u) _[Requires a CDC Office365 login, if you do not have a CDC Office365 please ask a friend who does to submit the request on your behalf. If you're looking for access to the CDCEnt private organization, please use the [GitHub Enterprise Cloud Access Request form](https://forms.office.com/Pages/ResponsePage.aspx?id=aQjnnNtg_USr6NJ2cHf8j44WSiOI6uNOvdWse4I-C2NUQjVJVDlKS1c0SlhQSUxLNVBaOEZCNUczVS4u).]_
-
-## Related documents
-
-* [Open Practices](open_practices.md)
-* [Rules of Behavior](rules_of_behavior.md)
-* [Thanks and Acknowledgements](thanks.md)
-* [Disclaimer](DISCLAIMER.md)
-* [Contribution Notice](CONTRIBUTING.md)
-* [Code of Conduct](code-of-conduct.md)
 
 ## Overview
 
-Describe the purpose of your project. Add additional sections as necessary to help collaborators and potential collaborators understand and use your project.
+This repository provides code and supporting documentation for deriving weekly leptospirosis outbreak thresholds in Puerto Rico using historical case data and a statistical modeling framework, with an adjustment to allow for the change in reporting definition in 2022. The approach informs real-time public health decision-making in collaboration with the Puerto Rico Department of Health. The approach is a modified version of a previously cited method (https://bmjopen.bmj.com/content/15/9/e106182) that allows for estimation with lower case counts.
+
+### Background
+
+Leptospirosis remains a recurring public health concern in Puerto Rico and other endemic regions, particularly following hurricanes and flooding events when environmental conditions favor increased exposure. Here, I have adapted disease outbreak threshold methods previously published in BMJ Open (https://bmjopen.bmj.com/content/15/9/e106182) to allow for low weekly case counts. This method uses a weekly **intercept-only negative binomial regression model**, fit to historical data using time-series bootstrapping to estimate threshold values. These thresholds enable objective, data-driven identification of outbreak weeks and timely alerts that can be incoporated into reoutine surveillance reports and used to monitor leptospirosis activity.
+
+### Repository Contents
+
+
+* **`/code/threshold_model_lepto.R`** - (.R file) Primary R script for running thresholds and plotting figures
+  * Reads in the data, cleans and formats it on a weekly scale
+  * Draws time-series bootstrap estimates to supplement the dataset
+  * Fits the intercept-only negative binomial model using the bootstrapped data
+  * Calculates percentile-based thresholds (75th, 80th, 85th, 90th, and 95th) at the island-wide level.
+  * Generates graphs at the island-wide level.
+  * Calculates percentile-based thresholds (75th-95th) at the health region level.
+  * Generates graphs at the health region level. 
+* **`/.github/`** - (.md files) issue and pull request templates
+
+### Usage Instructions
+
+1. **Locate data**: Place the case data files in the `/data` folder, as an R-readable file (e.g., CSV, RDS). Alternatively, note the file path where they are saved to be read in later.
+2. **Run the model**: Execute `threshold_model_lepto.R`. This will compute thresholds and generate key figures.
+
+
+These examples demonstrate practical impact and assist in bridging surveillance data with actionable public health responses.
+
+### Citation
+
+If you use these materials or replicate the modeling approach, please cite this code and:
+Thayer MB, Marzan-Rodriguez M, Torres Aponte J, et al. Dengue epidemic alert thresholds for surveillance and decision-making in Puerto Rico: development and prospective application of an early warning system using routine surveillance data. BMJ Open 2025; 15:e106182. doi: 10.1136/bmjopen-2025-106182.
+
+
+
   
 ## Public Domain Standard Notice
 This repository constitutes a work of the United States Government and is not
@@ -42,8 +61,6 @@ This source code in this repository is distributed in the hope that it will be u
 WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE. See the Apache Software License for more details.
 
-You should have received a copy of the Apache Software License along with this
-program. If not, see http://www.apache.org/licenses/LICENSE-2.0.html
 
 The source code forked from other open source projects will inherit its license.
 

@@ -1,0 +1,15 @@
+
+cff-version: 1.2.0
+title: Leptospirosis Outbreak Thresholds
+type: software
+authors:
+  - given-names: Maile
+    family-names: Thayer
+    email: ruu6@cdc.gov
+    orcid: 'https://orcid.org/0000-0001-6952-0440'
+identifiers:
+  - type: doi
+    value: 
+repository-code: 'https://github.com/CDCgov/leptospirosis_thresholds'
+license: Apache-2.0
+date-released: '2025-09-02'
