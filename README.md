@@ -13,28 +13,32 @@ Leptospirosis remains a recurring public health concern in Puerto Rico and other
 
 ### Repository Contents
 
-
-
-* **`/code/threshold_model_lepto.R`** - (.R file) Primary R script for running thresholds and plotting figures. The bullets below are done at both the island-wide and health region level
+* **`/code/thresholds_leptospirosis_islandwide.R`** - (.R file) Primary R script for running island-wide (Puerto Rico) thresholds and plotting figures. 
   * Reads in the data, cleans and formats it on a weekly scale.
   * Draws time-series bootstrap estimates to supplement the dataset.
   * Fits the intercept-only negative binomial model using the bootstrapped data.
-  * Calculates percentile-based thresholds (75th, 80th, 85th, 90th, and 95th).
+  * Calculates percentile-based thresholds (75th, 80th, 85th, 90th, and 95th), both in real-time and retrospectively.
   * Applies a range of consecutive week rules (2+, 3+, and 4+).
-  * Generates graphs.
+  * Generates graphs with the differing threshold definitions and rules.
+* **`/code/thresholds_leptospirosis_healthregion.R`** - (.R file) R script for running health-region-level (Puerto Rico) thresholds and plotting figures. 
+  * Reads in the data, cleans and formats it on a weekly scale.
+  * Draws time-series bootstrap estimates to supplement the dataset.
+  * Fits the intercept-only negative binomial model using the bootstrapped data.
+  * Calculates percentile-based thresholds (90th) for each health region, both in real-time and retrospectively.
+  * Generates graphs by health region.
 * **`/.github/`** - (.md files) issue and pull request templates
 
 ### Usage Instructions
 
-1. **Locate data**: Place the case data files in the `/data` folder, as an R-readable file (e.g., CSV, RDS). Alternatively, note the file path where they are saved to be read in later.
-2. **Run the model**: Execute `threshold_model_lepto.R`. This will compute thresholds and generate key figures.
+1. **Locate data**: Save the data as R-readable files (e.g., CSV, RDS). Note the file path where they are saved to be read in later.
+2. **Run the model**: Execute model code from the `code` folder. Run the `thresholds_leptospirosis_islandwide.R` code for island-wide Puerto Rico thresholds with varying definitions of thresholds (percentiles and consecutive week rules). Run the `thresholds_leptospirosis_healthregion.R` code for thresholds at the health region with using the 90th percentile definition. Both scripts will compute thresholds and generate key figures.
 
 
 These examples demonstrate practical impact and assist in bridging surveillance data with actionable public health responses.
 
 ### Citation
 
-If you use these materials or replicate the modeling approach, please cite this code and:
+If you use these materials or replicate the modeling approach, please cite this repository code and:
 Thayer MB, Marzan-Rodriguez M, Torres Aponte J, et al. Dengue epidemic alert thresholds for surveillance and decision-making in Puerto Rico: development and prospective application of an early warning system using routine surveillance data. BMJ Open 2025; 15:e106182. doi: 10.1136/bmjopen-2025-106182.
 
 
